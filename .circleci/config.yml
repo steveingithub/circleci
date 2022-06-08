@@ -1,0 +1,19 @@
+version: 2.1
+jobs:
+  run_flask:
+    docker:
+      -image: circleci/python:3.7.4
+    steps:
+      - checkout
+      - run:
+          name: Installing Python Dependencies
+          command: |
+            echo 'export PATH=~$PATH:~/.local/bin' >> $BASH_ENV && source $BASH_ENV
+            pip install --user -r requirements.txt
+      - run:
+          name: Run unit tests
+          command: python3 sample.py
+workflows:
+  build_flask:
+    jobs:
+      - run_flask
