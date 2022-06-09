@@ -20,7 +20,7 @@ def generate_html(message):
 
 
 @app.route('/')
-def hello_world():
+def greet():
     html = generate_html('Welcome to CI/CD')
     return html
 
