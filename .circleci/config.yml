@@ -2,9 +2,9 @@ version: 2.1
 orbs:
   python: circleci/python@2.0.3
 jobs:
-  run_flask:
+  run-flask:
     docker:
-      -image: circleci/python:3.7.4
+      - image: circleci/python:3.7.4
     steps:
       - checkout
       - run:
@@ -23,4 +23,4 @@ jobs:
 workflows:
   build_flask:
     jobs:
-      - run_flask
+      - run-flask
